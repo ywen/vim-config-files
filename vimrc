@@ -210,3 +210,6 @@ autocmd User Rails		Rnavcommand form app/forms -glob=**/*
 autocmd User Rails		Rnavcommand presenter app/presenter -glob=**/*
 autocmd User Rails		Rnavcommand plugin vendor/plugins -glob=**/*
 autocmd User Rails		Rnavcommand stepdef features/step_definitions -glob=**/* -suffix=_steps.rb
+
+"fuzzyfinder textmate style
+map <leader>t :FuzzyFinderTextMate<CR>
