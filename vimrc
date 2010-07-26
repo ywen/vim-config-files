@@ -132,6 +132,7 @@ if filereadable(".vimrc.local")
 endif
 
 " Use Ack instead of Grep when available
+set grepprg=grep\ -nH\ $*
 if executable("ack")
   set grepprg=ack\ -H\ --nogroup\ --nocolor
 endif
@@ -210,6 +211,9 @@ autocmd User Rails		Rnavcommand form app/forms -glob=**/*
 autocmd User Rails		Rnavcommand presenter app/presenter -glob=**/*
 autocmd User Rails		Rnavcommand plugin vendor/plugins -glob=**/*
 autocmd User Rails		Rnavcommand stepdef features/step_definitions -glob=**/* -suffix=_steps.rb
+autocmd User Rails		Rnavcommand feature features -glob=**/* -suffix=.feature
 
 "fuzzyfinder style
 map <C-f> :FufTaggedFile<CR>
+
+set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M\")}\ %l,%c%V\ %P
