@@ -57,9 +57,9 @@ if exists("&ofu") && has("ruby")
 endif
 
 " To activate, :set ballooneval
-if has('balloon_eval') && exists('+balloonexpr')
-  setlocal balloonexpr=RubyBalloonexpr()
-endif
+" if has('balloon_eval') && exists('+balloonexpr')
+"   setlocal balloonexpr=RubyBalloonexpr()
+" endif
 
 
 " TODO:

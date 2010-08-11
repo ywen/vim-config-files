@@ -217,3 +217,4 @@ autocmd User Rails		Rnavcommand feature features -glob=**/* -suffix=.feature
 map <C-f> :FufTaggedFile<CR>
 
 set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M\")}\ %l,%c%V\ %P
+set noballooneval

@@ -1,9 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/ywen/.vim'
-let g:netrw_dirhist_2='/Users/ywen/projects/next_gen/wos_app/db/migrate'
-let g:netrw_dirhist_3='/Users/ywen/projects/next_gen/wos_app/app'
-let g:netrw_dirhist_4='/Users/ywen/projects/next_gen/internal_gems/pm_service_objects_factory/lib/pm_service_objects_factory'
-let g:netrw_dirhist_5='/Users/ywen/projects/next_gen/bpm_service/config/notifiers'
-let g:netrw_dirhist_6='/Users/ywen/projects/next_gen/internal_gems/pm_service_objects_factory/lib/pm_service_objects_factory'
-let g:netrw_dirhist_7='/Users/ywen/projects/next_gen/bpm_service/features/support'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/Users/ywen/projects/next_gen/wos_app/config/navigations'
