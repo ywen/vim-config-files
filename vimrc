@@ -218,3 +218,7 @@ map <C-f> :FufTaggedFile<CR>
 
 set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M\")}\ %l,%c%V\ %P
 set noballooneval
+let g:ConqueTerm_Color = 1
+let g:ConqueTerm_TERM = 'vt100'
+let g:ConqueTerm_ReadUnfocused = 0
+let g:ConqueTerm_CWInsert = 0
