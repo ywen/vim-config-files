@@ -19,6 +19,30 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set spell
+set relativenumber
+set undofile
+set gdefault
+let mapleader = ","
+nnoremap <leader><space> :noh<cr>
+inoremap jj <ESC>
+nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+noremap <leader>a :Ack
+
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap j gj
+nnoremap k gk
+nnoremap ; :
 " Don't use Ex mode, use Q for formatting
 map Q gq
 " This is an alternative that also works in block mode, but the deleted
@@ -216,7 +240,7 @@ autocmd User Rails		Rnavcommand feature features -glob=**/* -suffix=.feature
 "fuzzyfinder style
 map <C-f> :FufTaggedFile<CR>
 
-set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M\")}\ %l,%c%V\ %P
+set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M\")}\ %l,%c%V\ %P%{fugitive#statusline()}
 set noballooneval
 let g:ConqueTerm_Color = 1
 let g:ConqueTerm_TERM = 'vt100'
