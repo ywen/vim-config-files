@@ -21,33 +21,38 @@ set incsearch		" do incremental searching
 set spell
 set relativenumber
 set undofile
+set undodir=~/.vim/undo
 set gdefault
 let mapleader = ","
+"remove the search highlight
 nnoremap <leader><space> :noh<cr>
 inoremap jj <ESC>
+"split window
 nnoremap <leader>w <C-w>v<C-w>l
+"move between windows
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-noremap <leader>a :Ack
+noremap <leader>a :Ack --ruby 
+noremap t :Rake<CR>
 
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 nnoremap ; :
 " Don't use Ex mode, use Q for formatting
 map Q gq
+
+"Git commands
+noremap gs :Gstatus<CR>
+noremap ggc :Gcommit<CR>
+noremap gp :Git push<CR>
 " This is an alternative that also works in block mode, but the deleted
 " text is lost and it only works for putting the current register.
 "vnoremap p "_dp
+"
+"file jumping
+noremap fb :b#<CR>
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -246,3 +251,14 @@ let g:ConqueTerm_Color = 1
 let g:ConqueTerm_TERM = 'vt100'
 let g:ConqueTerm_ReadUnfocused = 0
 let g:ConqueTerm_CWInsert = 0
+
+"rails.vim specific shortcut
+noremap <leader>rm :Rmodel 
+noremap <leader>rc :Rcontroller 
+noremap <leader>rv :Rview 
+noremap <leader>rs :Rspec 
+noremap <leader>rl :Rlib 
+noremap l :A<CR>
+
+"buffers
+noremap <leader>bd :bd<CR>
