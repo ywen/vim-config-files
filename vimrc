@@ -167,7 +167,7 @@ if executable("ack")
 endif
 
 " Color scheme
-colorscheme vividchalk
+colorscheme railscasts
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A
 
