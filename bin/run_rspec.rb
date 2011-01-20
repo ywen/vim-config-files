@@ -31,6 +31,7 @@ end
 
 argv = [ARGV[0]]
 argv << "--c"
+argv << "--drb"
 argv << "--format"
 argv << "html:#{report_file}"
 

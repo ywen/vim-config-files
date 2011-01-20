@@ -36,6 +36,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 noremap <leader>a :Ack --ruby 
 noremap t :Rake<CR>
+nnoremap <leader>u :s/\(\u\)/_\L\1<cr>
 
 nnoremap j gj
 nnoremap k gk

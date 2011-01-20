@@ -1,3 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/ywen/projects/next_gen/internal_gems/isb_migration/lib'
+let g:netrw_dirhist_2='/Users/ywen/.rvm/gems/ree-1.8.7-2010.02@wos/bundler/gems/sem_service_client-3a7f75dc1ef7'
+let g:netrw_dirhist_3='/Users/ywen/.rvm/gems/ree-1.8.7-2010.02@wos/bundler/gems/sem_service_client-3a7f75dc1ef7/lib'
+let g:netrw_dirhist_4='/Users/ywen/.rvm/gems/ree-1.8.7-2010.02@wos/bundler/gems/pm_service_objects_factory-44c61e93b7be'
+let g:netrw_dirhist_5='/Users/ywen/.rvm/gems/ree-1.8.7-2010.02@wos/bundler/gems/pm_service_objects_factory-44c61e93b7be/lib'
+let g:netrw_dirhist_6='/Users/ywen/.rvm/gems/ree-1.8.7-2010.02@wos/bundler/gems/pm_service_objects_factory-44c61e93b7be/lib/pm_service_objects_factory'
+let g:netrw_dirhist_7='/Users/ywen/.rvm/gems/ree-1.8.7-2010.02@wos/bundler/gems/pm_service_objects_factory-44c61e93b7be/lib/pm_service_objects_factory/factories'
+let g:netrw_dirhist_8='/Users/ywen/projects/next_gen/internal_gems/pm_service_objects_factory/lib/pm_service_objects_factory/step_definitions'
