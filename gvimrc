@@ -22,7 +22,7 @@ hi normal guibg=black
 set transp=7
 
 if has("gui_macvim")
-  map ll <Plug>PeepOpen
+  map mm <Plug>PeepOpen
 end
 
 nmap <D-Right> :maca _cycleWindowsBackwards:<CR>

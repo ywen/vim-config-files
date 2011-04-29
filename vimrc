@@ -35,7 +35,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 noremap <leader>a :Ack --ruby 
-noremap t :Rake<CR>
+"silly attempt to convert class name to underscore
 nnoremap <leader>u :s/\(\u\)/_\L\1<cr>
 
 nnoremap j gj
@@ -238,13 +238,11 @@ highlight Pmenu ctermbg=238 gui=bold guibg=#9aadd5 guifg=black
 
 "Rails
 autocmd User Rails		Rnavcommand form app/forms -glob=**/*
+autocmd User Rails		Rnavcommand communication app/communications -glob=**/*
 autocmd User Rails		Rnavcommand presenter app/presenter -glob=**/*
 autocmd User Rails		Rnavcommand plugin vendor/plugins -glob=**/*
 autocmd User Rails		Rnavcommand stepdef features/step_definitions -glob=**/* -suffix=_steps.rb
 autocmd User Rails		Rnavcommand feature features -glob=**/* -suffix=.feature
-
-"fuzzyfinder style
-map <C-f> :FufTaggedFile<CR>
 
 set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M\")}\ %l,%c%V\ %P%{fugitive#statusline()}
 set noballooneval
@@ -259,7 +257,7 @@ noremap <leader>rc :Rcontroller
 noremap <leader>rv :Rview 
 noremap <leader>rs :Rspec 
 noremap <leader>rl :Rlib 
-noremap l :A<CR>
+noremap t :A<CR>
 
 "buffers
 noremap <leader>bd :bd<CR>
