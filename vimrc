@@ -34,7 +34,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-noremap <leader>a :Ack --ruby 
+noremap <leader>a :Ack
 "silly attempt to convert class name to underscore
 nnoremap <leader>u :s/\(\u\)/_\L\1<cr>
 
@@ -63,7 +63,6 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
 endif
 let g:Tex_ViewRule_pdf = 'Skim.app'
 
-au BufRead,BufNewFile *.js set ft=javascript.jquery
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
@@ -261,3 +260,4 @@ noremap t :A<CR>
 
 "buffers
 noremap <leader>bd :bd<CR>
+let g:SimpleJsIndenter_BriefMode = 1
