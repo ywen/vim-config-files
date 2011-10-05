@@ -1,6 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/ywen/.rvm/gems/ree-1.8.7-2010.02@tnm/gems/pickle-0.4.7'
-let g:netrw_dirhist_2='/Users/ywen/projects/next_gen/gems_for_testing/sem_service_objects_factory/lib/sem_service_objects_factory/factories'
-let g:netrw_dirhist_3='/Users/ywen/projects/next_gen/apps/wos_app/app/models/physical'
-let g:netrw_dirhist_4='/Users/ywen/projects/next_gen/apps/wos_app/sass'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/ywen/projects/next_gen/apps/pm_service'
+let g:netrw_dirhist_2='/Users/ywen'
+let g:netrw_dirhist_3='/Users/ywen/projects/next_gen/apps/pm_service'
+let g:netrw_dirhist_4='/Users/ywen/projects/next_gen/apps/wos_app/features/factories'
+let g:netrw_dirhist_5='/Users/ywen/projects/next_gen/apps/bpm_service/lib/tasks'
+let g:netrw_dirhist_6='/Users/ywen/projects/next_gen/prod-gems/pm_service_client'
+let g:netrw_dirhist_7='/Users/ywen/projects/next_gen/apps/sem_service/app/models/physical'
+let g:netrw_dirhist_8='/Users/ywen/projects/next_gen/test-gems/bpm_service_objects_factory/lib/bpm_service_objects_factory/step_definitions'

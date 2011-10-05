@@ -3,10 +3,10 @@
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles() 
 set nocompatible
-:au FocusLost * :wa
 set t_Co=256
 " autosave buffers
 set autowriteall
+autocmd BufLeave,FocusLost * wall
 set ignorecase
 set smartcase
 " allow backspacing over everything in insert mode
@@ -107,7 +107,7 @@ set directory=~/.vim/swp
 "   " automatically open folds at the starting cursor position
 "   " autocmd BufReadPost .foldo!
 " endif
-
+" 
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
@@ -171,6 +171,10 @@ colorscheme railscasts
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A
 
+autocmd InsertEnter,InsertLeave * set cul!
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
 " Numbers
 set number
 set numberwidth=5
@@ -185,17 +189,25 @@ set completeopt=longest,menu
 set wildmode=list:longest,list:full
 
 " Run Rspec for the current spec file
-function! RunRspec()
-ruby << EOF
-  buffer = VIM::Buffer.current
-  spec_file = VIM::Buffer.current.name
-  VIM::message "Running Rspec for #{spec_file}. Results will be displayed in Firefox."
-  command = "ruby ~/.vim/bin/run_rspec.rb #{spec_file}"
-  system(command)
-EOF
+" Execute open rspec buffer
+" Thanks to Ian Smith-Heisters
+function! RunSpec1(args)
+  if exists("b:rails_root") && filereadable(b:rails_root . "/script/spec")
+    let spec = b:rails_root . "/script/spec"
+  else
+    let spec = "bundle exec rspec"
+  end 
+  let cmd = ":!" . spec . " % -cfn " . a:args
+  execute cmd 
 endfunction
-map <F7> :call RunRspec()<cr>
-map <D-r> <ESC>:w<CR><F7><CR>
+
+" Mappings
+" run one rspec example or describe block based on cursor position
+map <leader>R :w<CR>:call RunSpec1("-l " . <C-r>=line('.')<CR>)
+" run full rspec file
+map <leader>r :w<CR>:call RunSpec1("")<CR>
+" 
+" map <D-r> <ESC>:w<CR>:RunSpec<CR>
 map <D-B> <ESC>:BufOnly<cr>
 function! RailsScriptSearch(args)
   let l:savegrepprg = &grepprg  
@@ -229,22 +241,23 @@ map <leader>rd :silent call RailsScriptSearch(expand("'def <cword>'"))<CR>:cc<CR
 " autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold guibg=#9aadd5 guifg=black
- augroup mkd
+augroup mkd
 
   autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
 
- augroup END
+augroup END
 
 "Rails
 autocmd User Rails		Rnavcommand form app/forms -glob=**/*
+autocmd User Rails		Rnavcommand physical app/models/physical -glob=**/*
 autocmd User Rails		Rnavcommand communication app/communications -glob=**/*
 autocmd User Rails		Rnavcommand presenter app/presenter -glob=**/*
 autocmd User Rails		Rnavcommand plugin vendor/plugins -glob=**/*
 autocmd User Rails		Rnavcommand stepdef features/step_definitions -glob=**/* -suffix=_steps.rb
 autocmd User Rails		Rnavcommand feature features -glob=**/* -suffix=.feature
+autocmd User Rails		Rnavcommand sharedexamples spec/shared_examples -glob=**/*
 
 set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M\")}\ %l,%c%V\ %P%{fugitive#statusline()}
-set noballooneval
 let g:ConqueTerm_Color = 1
 let g:ConqueTerm_TERM = 'vt100'
 let g:ConqueTerm_ReadUnfocused = 0
@@ -261,3 +274,8 @@ noremap t :A<CR>
 "buffers
 noremap <leader>bd :bd<CR>
 let g:SimpleJsIndenter_BriefMode = 1
+let g:ConqueTerm_ReadUnfocused = 1
+let g:ConqueTerm_TERM = 'xterm'
+"mouse support in terminal
+set mouse=a
+set mousehide
