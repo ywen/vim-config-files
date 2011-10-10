@@ -1,10 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Users/ywen/projects/next_gen/apps/pm_service'
-let g:netrw_dirhist_2='/Users/ywen'
-let g:netrw_dirhist_3='/Users/ywen/projects/next_gen/apps/pm_service'
-let g:netrw_dirhist_4='/Users/ywen/projects/next_gen/apps/wos_app/features/factories'
-let g:netrw_dirhist_5='/Users/ywen/projects/next_gen/apps/bpm_service/lib/tasks'
-let g:netrw_dirhist_6='/Users/ywen/projects/next_gen/prod-gems/pm_service_client'
-let g:netrw_dirhist_7='/Users/ywen/projects/next_gen/apps/sem_service/app/models/physical'
-let g:netrw_dirhist_8='/Users/ywen/projects/next_gen/test-gems/bpm_service_objects_factory/lib/bpm_service_objects_factory/step_definitions'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/Users/ywen/projects/next_gen/prod-gems/rest_resource/lib/rest_resource'
+let g:netrw_dirhist_2='/Users/ywen/projects/next_gen/apps/pm_service/app/controllers/corporations'
