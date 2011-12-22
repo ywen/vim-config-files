@@ -61,6 +61,7 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
   set hlsearch
 endif
+let g:Tex_DefaultTargetFormat= "pdf"
 let g:Tex_ViewRule_pdf = 'Skim.app'
 
 " Only do this part when compiled with support for autocommands.
