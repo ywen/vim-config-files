@@ -1,2 +1,0 @@
-conque_1.1.vba: call delete('/Users/ywen/.vim/autoload/conque_term.vim')|call delete('/Users/ywen/.vim/doc/conque_term.txt')|call delete('/Users/ywen/.vim/plugin/conque_term.vim')|call delete('/Users/ywen/.vim/syntax/conque_term.vim')
-AnsiEsc.vba: call delete('/Users/ywen/.vim/plugin/AnsiEscPlugin.vim')|call delete('/Users/ywen/.vim/autoload/AnsiEsc.vim')|call delete('/Users/ywen/.vim/plugin/cecutil.vim')|call delete('/Users/ywen/.vim/doc/AnsiEsc.txt')
