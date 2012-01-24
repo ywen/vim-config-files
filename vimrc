@@ -281,6 +281,11 @@ let g:ConqueTerm_TERM = 'xterm'
 set mouse=a
 set mousehide
 
+"gist
+let g:gist_clip_command = 'pbcopy'
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
+
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
 function! s:align()
