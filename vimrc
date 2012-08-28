@@ -37,7 +37,7 @@ nnoremap <C-l> <C-w>l
 noremap <leader>a :Ack
 "silly attempt to convert class name to underscore
 nnoremap <leader>u :s/\(\u\)/_\L\1<cr>
-
+set clipboard=unnamed
 nnoremap j gj
 nnoremap k gk
 nnoremap ; :
@@ -251,10 +251,10 @@ augroup END
 "Rails
 autocmd User Rails		Rnavcommand form app/forms -glob=**/*
 autocmd User Rails		Rnavcommand physical app/models/physical -glob=**/*
-autocmd User Rails		Rnavcommand communication app/communications -glob=**/*
-autocmd User Rails		Rnavcommand presenter app/presenter -glob=**/*
+autocmd User Rails		Rnavcommand presenter app/presenters -glob=**/*
+autocmd User Rails		Rnavcommand ss app/services -glob=**/*
 autocmd User Rails		Rnavcommand plugin vendor/plugins -glob=**/*
-autocmd User Rails		Rnavcommand stepdef features/step_definitions -glob=**/* -suffix=_steps.rb
+autocmd User Rails		Rnavcommand stepdef features/steps
 autocmd User Rails		Rnavcommand feature features -glob=**/* -suffix=.feature
 autocmd User Rails		Rnavcommand sharedexamples spec/shared_examples -glob=**/*
 

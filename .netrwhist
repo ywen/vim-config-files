@@ -1,6 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/ywen/projects/next_gen/apps/wos_app/.git'
-let g:netrw_dirhist_2='/Users/ywen/projects/homerun/homerun/app/models/user'
-let g:netrw_dirhist_3='/Users/ywen/projects/homerun/homerun/lib/redis_extension'
-let g:netrw_dirhist_4='/Users/ywen/projects/homerun/developer.offerengine.com/content/v1/deals'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/Users/ywen/projects/homerun/galaxy-db-injector/spec/lib/factories/composites'
