@@ -189,25 +189,9 @@ set complete=.,w,b,u,t
 set completeopt=longest,menu
 set wildmode=list:longest,list:full
 
-" Run Rspec for the current spec file
-" Execute open rspec buffer
-" Thanks to Ian Smith-Heisters
-function! RunSpec1(args)
-  if exists("b:rails_root") && filereadable(b:rails_root . "/script/spec")
-    let spec = b:rails_root . "/script/spec"
-  else
-    let spec = "bundle exec rspec"
-  end 
-  let cmd = ":!" . spec . " % -cfn " . a:args
-  execute cmd 
-endfunction
-
 " Mappings
 " run one rspec example or describe block based on cursor position
-map <leader>R :w<CR>:call RunSpec1("-l " . <C-r>=line('.')<CR>)
-" run full rspec file
-map <leader>r :w<CR>:call RunSpec1("")<CR>
-" 
+map <leader>R :w<CR>:call RunRspecCurrentLineConque()<CR>)
 " map <D-r> <ESC>:w<CR>:RunSpec<CR>
 map <D-B> <ESC>:BufOnly<cr>
 function! RailsScriptSearch(args)

@@ -46,3 +46,6 @@
 [submodule "bundle/vim-ruby-conque"]
 	path = bundle/vim-ruby-conque
 	url = git://github.com/skwp/vim-ruby-conque.git
+[submodule "bundle/vim-symbols-strings"]
+	path = bundle/vim-symbols-strings
+	url = git://github.com/rorymckinley/vim-symbols-strings.git
