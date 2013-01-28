@@ -1,7 +1,6 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles() 
+execute pathogen#infect()
 set nocompatible
 set t_Co=256
 " autosave buffers
