@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/Users/ywen/projects/homerun/homerun/app/controllers/api/v1/users'
 let g:netrw_dirhist_2='/Users/ywen/projects/homerun/serve-consumer-web/app/views/subscriptions'
 let g:netrw_dirhist_3='/Users/ywen/projects/homerun/homerun/lib/tmp_scripts'
+let g:netrw_dirhist_4='/Users/ywen/projects/homerun/mock-serve-client/lib/mock-serve-client'
