@@ -1,6 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/ywen/projects/homerun/homerun/app/controllers/api/v1/users'
 let g:netrw_dirhist_2='/Users/ywen/projects/homerun/serve-consumer-web/app/views/subscriptions'
 let g:netrw_dirhist_3='/Users/ywen/projects/homerun/homerun/lib/tmp_scripts'
 let g:netrw_dirhist_4='/Users/ywen/projects/homerun/mock-serve-client/lib/mock-serve-client'
+let g:netrw_dirhist_5='/Users/ywen/.rbenv/versions/ree-1.8.7-2012.02/lib/ruby/gems/1.8/bundler/gems/serve-client-test-3c3cff88b83d/lib/serve-client-test'
+let g:netrw_dirhist_6='/Users/ywen/projects/homerun/homerun/lib/config/partners'
+let g:netrw_dirhist_7='/Users/ywen/projects/homerun/homerun/spec/models/merchant'
+let g:netrw_dirhist_8='/Users/ywen/projects/homerun/homerun/vendor'

@@ -54,6 +54,9 @@ noremap gp :Git push<CR>
 "file jumping
 noremap fb :b#<CR>
 
+let ruby_space_errors = 1
+set list!
+set list listchars=tab:»·,trail:·
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
