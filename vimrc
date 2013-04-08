@@ -239,6 +239,7 @@ autocmd User Rails		Rnavcommand form app/forms -glob=**/*
 autocmd User Rails		Rnavcommand physical app/models/physical -glob=**/*
 autocmd User Rails		Rnavcommand presenter app/presenters -glob=**/*
 autocmd User Rails		Rnavcommand ss app/services -glob=**/*
+autocmd User Rails		Rnavcommand domain app/domain -glob=**/*
 autocmd User Rails		Rnavcommand plugin vendor/plugins -glob=**/*
 autocmd User Rails		Rnavcommand stepdef features/steps
 autocmd User Rails		Rnavcommand feature features -glob=**/* -suffix=.feature
