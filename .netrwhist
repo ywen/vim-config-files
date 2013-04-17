@@ -1,9 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/ywen/projects/homerun/homerun/factories'
-let g:netrw_dirhist_2='/Users/ywen/projects/homerun/homerun/features/api/v1'
-let g:netrw_dirhist_3='/Users/ywen/projects/homerun/serve-consumer-web/app/assets/javascripts/users'
-let g:netrw_dirhist_4='/Users/ywen/projects/homerun/homerun/spec/lib'
-let g:netrw_dirhist_5='/Users/ywen'
-let g:netrw_dirhist_6='/Users/ywen/projects/homerun/serve-consumer-web/vendor'
-let g:netrw_dirhist_7='/Users/ywen/projects/FreshTrackAdvisors/SMCC/lib/tasks/data'
+let g:netrw_dirhist_cnt =0

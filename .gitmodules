@@ -52,3 +52,6 @@
 [submodule "bundle/vim-symbols-strings"]
 	path = bundle/vim-symbols-strings
 	url = git://github.com/rorymckinley/vim-symbols-strings.git
+[submodule "bundle/splitjoin"]
+	path = bundle/splitjoin
+	url = git://github.com/AndrewRadev/splitjoin.vim.git

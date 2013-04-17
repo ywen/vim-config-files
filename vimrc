@@ -285,3 +285,5 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
+nmap sj :SplitjoinSplit<cr>
+nmap sk :SplitjoinJoin<cr>
