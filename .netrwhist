@@ -1,2 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =0
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/ywen/projects/FreshTrackAdvisors/SMCC/app/models'
+let g:netrw_dirhist_2='/Users/ywen/projects/FreshTrackAdvisors/SMCC/app'
+let g:netrw_dirhist_3='/Users/ywen/projects/FreshTrackAdvisors/social_core/spec/support/factories'
+let g:netrw_dirhist_4='/Users/ywen/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/jquery-rails-2.1.3'
+let g:netrw_dirhist_5='/Users/ywen/projects/FreshTrackAdvisors/SMCC/features'
+let g:netrw_dirhist_6='/Users/ywen/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/activity_logging-0.1.5/lib/activity_logging'
+let g:netrw_dirhist_7='/Users/ywen/projects/FreshTrackAdvisors/activity_logging/.git'
+let g:netrw_dirhist_8='/Users/ywen/projects/FreshTrackAdvisors/activity_logging/spec/activity_logging/domain/sources'
