@@ -234,17 +234,6 @@ augroup mkd
 
 augroup END
 
-"Rails
-autocmd User Rails		Rnavcommand form app/forms -glob=**/*
-autocmd User Rails		Rnavcommand physical app/models/physical -glob=**/*
-autocmd User Rails		Rnavcommand presenter app/presenters -glob=**/*
-autocmd User Rails		Rnavcommand ss app/services -glob=**/*
-autocmd User Rails		Rnavcommand domain app/domain -glob=**/*
-autocmd User Rails		Rnavcommand plugin vendor/plugins -glob=**/*
-autocmd User Rails		Rnavcommand stepdef features/steps
-autocmd User Rails		Rnavcommand feature features -glob=**/* -suffix=.feature
-autocmd User Rails		Rnavcommand sharedexamples spec/shared_examples -glob=**/*
-
 set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M\")}\ %l,%c%V\ %P%{fugitive#statusline()}
 let g:ConqueTerm_Color = 1
 let g:ConqueTerm_TERM = 'vt100'
@@ -287,3 +276,12 @@ function! s:align()
 endfunction
 nmap sj :SplitjoinSplit<cr>
 nmap sk :SplitjoinJoin<cr>
+
+let g:rails_projections = {
+	      \ "app/domain/*.rb": {
+	      \   "command": "domain",
+	      \   "test": [
+	      \     "spec/domain/%s_spec.rb"
+	      \   ],
+	      \   "keywords": "domain"
+        \ }}
