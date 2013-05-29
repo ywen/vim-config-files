@@ -18,6 +18,7 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 setlocal spell spelllang=en_us
+set spell
 set relativenumber
 set undofile
 set undodir=~/.vim/undo
@@ -284,4 +285,8 @@ let g:rails_projections = {
 	      \     "spec/domain/%s_spec.rb"
 	      \   ],
 	      \   "keywords": "domain"
-        \ }}
+        \ },
+	      \ "integration_tests/*.rb": {
+	      \   "command": "integration",
+	      \   "keywords": "integration"}
+        \}

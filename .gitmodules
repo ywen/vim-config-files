@@ -61,3 +61,6 @@
 [submodule "bundle/vim-bundlers"]
 	path = bundle/vim-bundlers
 	url = git://github.com/tpope/vim-bundler.git
+[submodule "bundle/vim-ruby-minitest"]
+	path = bundle/vim-ruby-minitest
+	url = git://github.com/sunaku/vim-ruby-minitest.git
