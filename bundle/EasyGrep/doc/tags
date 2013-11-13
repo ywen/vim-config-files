@@ -9,10 +9,12 @@ EasyGrep	EasyGrep.txt	/*EasyGrep*
 EasyGrep.txt	EasyGrep.txt	/*EasyGrep.txt*
 EasyGrepAllOptionsInExplorer	EasyGrep.txt	/*EasyGrepAllOptionsInExplorer*
 EasyGrepCommand	EasyGrep.txt	/*EasyGrepCommand*
+EasyGrepDefaultUserPattern	EasyGrep.txt	/*EasyGrepDefaultUserPattern*
 EasyGrepEveryMatch	EasyGrep.txt	/*EasyGrepEveryMatch*
 EasyGrepExtraWarnings	EasyGrep.txt	/*EasyGrepExtraWarnings*
 EasyGrepFileAssociations	EasyGrep.txt	/*EasyGrepFileAssociations*
 EasyGrepFileAssociationsInExplorer	EasyGrep.txt	/*EasyGrepFileAssociationsInExplorer*
+EasyGrepFilesToExclude	EasyGrep.txt	/*EasyGrepFilesToExclude*
 EasyGrepHidden	EasyGrep.txt	/*EasyGrepHidden*
 EasyGrepIgnoreCase	EasyGrep.txt	/*EasyGrepIgnoreCase*
 EasyGrepInvertWholeWord	EasyGrep.txt	/*EasyGrepInvertWholeWord*
@@ -34,11 +36,14 @@ EasyGrep_Future	EasyGrep.txt	/*EasyGrep_Future*
 EasyGrep_History	EasyGrep.txt	/*EasyGrep_History*
 EasyGrep_Keymaps	EasyGrep.txt	/*EasyGrep_Keymaps*
 EasyGrep_KeymapsCustomization	EasyGrep.txt	/*EasyGrep_KeymapsCustomization*
+EasyGrep_KeymapsDefault	EasyGrep.txt	/*EasyGrep_KeymapsDefault*
 EasyGrep_KeymapsOptions	EasyGrep.txt	/*EasyGrep_KeymapsOptions*
 EasyGrep_License	EasyGrep.txt	/*EasyGrep_License*
 EasyGrep_Motivation	EasyGrep.txt	/*EasyGrep_Motivation*
 EasyGrep_Operation	EasyGrep.txt	/*EasyGrep_Operation*
+EasyGrep_OperationModes	EasyGrep.txt	/*EasyGrep_OperationModes*
 EasyGrep_Options	EasyGrep.txt	/*EasyGrep_Options*
 EasyGrep_OptionsDetail	EasyGrep.txt	/*EasyGrep_OptionsDetail*
 EasyGrep_OptionsExplorer	EasyGrep.txt	/*EasyGrep_OptionsExplorer*
 EasyGrep_OptionsSummary	EasyGrep.txt	/*EasyGrep_OptionsSummary*
+EasyGrep_Performance	EasyGrep.txt	/*EasyGrep_Performance*

@@ -64,3 +64,9 @@
 [submodule "bundle/vim-ruby-minitest"]
 	path = bundle/vim-ruby-minitest
 	url = git://github.com/sunaku/vim-ruby-minitest.git
+[submodule "bundle/vim-ruby-minitestcd"]
+	path = bundle/vim-ruby-minitestcd
+	url = git://github.com/sunaku/vim-ruby-minitest.git
+[submodule "/Users/ywen/.vim/bundle/vim-bufferline"]
+	path = /Users/ywen/.vim/bundle/vim-bufferline
+	url = https://github.com/bling/vim-bufferline

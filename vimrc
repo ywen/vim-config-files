@@ -265,6 +265,20 @@ let g:gist_open_browser_after_post = 1
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<cr>
+
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
+
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
@@ -279,14 +293,18 @@ nmap sj :SplitjoinSplit<cr>
 nmap sk :SplitjoinJoin<cr>
 
 let g:rails_projections = {
-	      \ "app/domain/*.rb": {
-	      \   "command": "domain",
+	      \ "app/classes/commands/*.rb": {
+	      \   "command": "commands",
 	      \   "test": [
-	      \     "spec/domain/%s_spec.rb"
+	      \     "spec/classes/commands/%s_spec.rb"
 	      \   ],
-	      \   "keywords": "domain"
+	      \   "keywords": "commands"
         \ },
-	      \ "integration_tests/*.rb": {
-	      \   "command": "integration",
-	      \   "keywords": "integration"}
+	      \ "app/classes/decorators/*.rb": {
+	      \   "command": "decorator",
+	      \   "test": [
+	      \     "spec/classes/decorators/%s_spec.rb"
+	      \   ],
+	      \   "keywords": "decorator"
+        \ }
         \}
