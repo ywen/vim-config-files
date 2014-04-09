@@ -19,7 +19,7 @@ set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 setlocal spell spelllang=en_us
 set spell
-set relativenumber
+set number
 set undofile
 set undodir=~/.vim/undo
 set gdefault
@@ -194,14 +194,13 @@ set wildmode=list:longest,list:full
 
 " Mappings
 " run one rspec example or describe block based on cursor position
-map <leader>R :w<CR>:call RunRspecCurrentLineConque()<CR>)
 " map <D-r> <ESC>:w<CR>:RunSpec<CR>
 map <D-B> <ESC>:BufOnly<cr>
 function! RailsScriptSearch(args)
   let l:savegrepprg = &grepprg  
   let l:savegrepformat = &grepformat
 
-  try 
+  try
     set grepprg=script/find
     set grepformat=%f:%l:%m
 
@@ -241,6 +240,8 @@ let g:ConqueTerm_TERM = 'vt100'
 let g:ConqueTerm_ReadUnfocused = 0
 let g:ConqueTerm_CWInsert = 0
 
+let g:bufferline_rotate = 2
+
 "rails.vim specific shortcut
 noremap <leader>rm :Rmodel 
 noremap <leader>rc :Rcontroller 
@@ -276,9 +277,6 @@ endfunc
 
 nnoremap <C-n> :call NumberToggle()<cr>
 
-autocmd InsertEnter * :set norelativenumber
-autocmd InsertLeave * :set relativenumber
-
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
@@ -300,6 +298,13 @@ let g:rails_projections = {
 	      \   ],
 	      \   "keywords": "commands"
         \ },
+	      \ "app/classes/forms/*.rb": {
+	      \   "command": "forms",
+	      \   "test": [
+	      \     "spec/classes/forms/%s_spec.rb"
+	      \   ],
+	      \   "keywords": "forms"
+        \ },
 	      \ "app/classes/decorators/*.rb": {
 	      \   "command": "decorator",
 	      \   "test": [
@@ -308,3 +313,34 @@ let g:rails_projections = {
 	      \   "keywords": "decorator"
         \ }
         \}
+function! BufSel(pattern)
+  let bufcount = bufnr("$")
+  let currbufnr = 1
+  let nummatches = 0
+  let firstmatchingbufnr = 0
+  while currbufnr <= bufcount
+    if(bufexists(currbufnr))
+      let currbufname = bufname(currbufnr)
+      if(match(currbufname, a:pattern) > -1)
+        echo currbufnr . ": ". bufname(currbufnr)
+        let nummatches += 1
+        let firstmatchingbufnr = currbufnr
+      endif
+    endif
+    let currbufnr = currbufnr + 1
+  endwhile
+  if(nummatches == 1)
+    execute ":buffer ". firstmatchingbufnr
+  elseif(nummatches > 1)
+    let desiredbufnr = input("Enter buffer number: ")
+    if(strlen(desiredbufnr) != 0)
+      execute ":buffer ". desiredbufnr
+    endif
+  else
+    echo "No matching buffers"
+  endif
+endfunction
+
+"Bind the BufSel() function to a user-command
+command! -nargs=1 Bs :call BufSel("<args>")
+

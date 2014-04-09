@@ -1,8 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/ywen/projects/emex/emex/app/assets/javascripts/corporate/general'
-let g:netrw_dirhist_2='/Users/ywen/projects/emex/emex/app/classes/commands'
-let g:netrw_dirhist_3='/Users/ywen/projects/emex/emex/app/models/deal'
-let g:netrw_dirhist_4='/Users/ywen/projects/emex/emex/spec/helpers/admin'
-let g:netrw_dirhist_5='/Users/ywen/projects/emex/emex/app/models/deal'
-let g:netrw_dirhist_6='/Users/ywen/projects/emex/emex/app/assets/javascripts/templates/corporate'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/ywen/.vim'
+let g:netrw_dirhist_2='/Users/ywen/projects/emex/emex/config/environments'
+let g:netrw_dirhist_3='/Users/ywen/projects/emex/blog/public/system'
+let g:netrw_dirhist_4='/Users/ywen/projects/emex/blog/config/initializers'
+let g:netrw_dirhist_5='/Users/ywen/projects/emex/emex/app/classes/generators/loas'
+let g:netrw_dirhist_6='/Users/ywen/projects/emex/ywen/ey-cloud-recipes/cookbooks/redis-yml/recipes'
+let g:netrw_dirhist_7='/Users/ywen/projects/emex/emex/app/assets/javascripts'
+let g:netrw_dirhist_8='/Users/ywen/projects/emex/exchange_frontend/app/assets/stylesheets'
