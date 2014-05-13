@@ -275,7 +275,7 @@ function! NumberToggle()
   endif
 endfunc
 
-nnoremap <C-n> :call NumberToggle()<cr>
+nnoremap <C-o> :call NumberToggle()<cr>
 
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
