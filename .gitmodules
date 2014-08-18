@@ -76,3 +76,6 @@
 [submodule "bundle/todo.txt-vim"]
 	path = bundle/todo.txt-vim
 	url = git://github.com/freitass/todo.txt-vim.git
+[submodule "bundle/vim-vinegar"]
+	path = bundle/vim-vinegar
+	url = git://github.com/tpope/vim-vinegar.git
