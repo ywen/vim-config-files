@@ -1,3 +1,4 @@
 set qm_em=https://www.github.com/emex/emex
 
-map  s gt
+map  x gt
+map  s gT
