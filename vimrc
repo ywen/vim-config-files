@@ -305,6 +305,13 @@ let g:rails_projections = {
 	      \   ],
 	      \   "keywords": "forms"
         \ },
+	      \ "app/classes/policies/*.rb": {
+	      \   "command": "policies",
+	      \   "test": [
+	      \     "spec/classes/policies/%s_spec.rb"
+	      \   ],
+	      \   "keywords": "forms"
+        \ },
 	      \ "app/classes/decorators/*.rb": {
 	      \   "command": "decorator",
 	      \   "test": [
