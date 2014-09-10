@@ -5,6 +5,7 @@ set qm_ep=https://www.github.com/emex/emex/pulls
 set qm_nt=https://www.netflix.com
 set qm_ln=https://emexpower.leankit.com/Boards/View/43641214#workflow-view
 set qm_rh=http://apidock.com/rails
+set qm_cir=https://circleci.com/gh/emex/bidtron
 
 map  x gt
 map  s gT
