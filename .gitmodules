@@ -1,6 +1,9 @@
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "bundle/simple-javascript-indenter"]
+	path = bundle/simple-javascript-indenter
+	url = https://github.com/jiangmiao/simple-javascript-indenter.git
 [submodule "bundle/ack.vim"]
 	path = bundle/ack.vim
 	url = git://github.com/mileszs/ack.vim.git
