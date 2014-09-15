@@ -319,6 +319,10 @@ let g:rails_projections = {
 	      \   ],
 	      \   "keywords": "representers"
         \ },
+	      \ "vendor/gems/bidtron-auction-ui/src/components/*.jsx": {
+	      \   "command": "jsxui",
+	      \   "keywords": "jsxui"
+        \ },
 	      \ "app/classes/decorators/*.rb": {
 	      \   "command": "decorator",
 	      \   "test": [
