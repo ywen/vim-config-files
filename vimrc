@@ -323,6 +323,10 @@ let g:rails_projections = {
 	      \   "command": "jsxui",
 	      \   "keywords": "jsxui"
         \ },
+	      \ "vendor/gems/bidtron-auction-ui/src//*.js": {
+	      \   "command": "uijs",
+	      \   "keywords": "uijs"
+        \ },
 	      \ "app/classes/decorators/*.rb": {
 	      \   "command": "decorator",
 	      \   "test": [
