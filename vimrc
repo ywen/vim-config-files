@@ -195,7 +195,7 @@ set wildmode=list:longest,list:full
 " Mappings
 " run one rspec example or describe block based on cursor position
 " map <D-r> <ESC>:w<CR>:RunSpec<CR>
-map <D-B> <ESC>:BufOnly<cr>
+map <C-b> <ESC>:BufOnly<cr>
 function! RailsScriptSearch(args)
   let l:savegrepprg = &grepprg  
   let l:savegrepformat = &grepformat
@@ -319,7 +319,14 @@ let g:rails_projections = {
 	      \   ],
 	      \   "keywords": "representers"
         \ },
-	      \ "vendor/gems/bidtron-auction-ui/src/components/*.jsx": {
+	      \ "app/classes/presenters/*.rb": {
+	      \   "command": "presenters",
+	      \   "test": [
+	      \     "spec/classes/presenters/%s_spec.rb"
+	      \   ],
+	      \   "keywords": "presenters"
+        \ },
+	      \ "vendor/gems/bidtron-auction-ui/src/*.jsx": {
 	      \   "command": "jsxui",
 	      \   "keywords": "jsxui"
         \ },

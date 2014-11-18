@@ -85,3 +85,6 @@
 [submodule "bundle/vim-bufonly"]
 	path = bundle/vim-bufonly
 	url = git@github.com:schickling/vim-bufonly.git
+[submodule "bundle/vim-mustache-handlebars"]
+	path = bundle/vim-mustache-handlebars
+	url = git@github.com:mustache/vim-mustache-handlebars.git
