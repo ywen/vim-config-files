@@ -275,8 +275,6 @@ function! NumberToggle()
   endif
 endfunc
 
-nnoremap <C-o> :call NumberToggle()<cr>
-
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
