@@ -289,12 +289,12 @@ nmap sj :SplitjoinSplit<cr>
 nmap sk :SplitjoinJoin<cr>
 
 let g:rails_projections = {
-	      \ "app/classes/commands/*.rb": {
-	      \   "command": "commands",
+	      \ "app/classes/services/*.rb": {
+	      \   "service": "services",
 	      \   "test": [
-	      \     "spec/classes/commands/%s_spec.rb"
+	      \     "spec/classes/services/%s_spec.rb"
 	      \   ],
-	      \   "keywords": "commands"
+	      \   "keywords": "services"
         \ },
 	      \ "app/classes/forms/*.rb": {
 	      \   "command": "forms",
