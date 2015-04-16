@@ -91,3 +91,6 @@
 [submodule "bundle/vimlatex"]
 	path = bundle/vimlatex
 	url = git@github.com:lervag/vimtex.git
+[submodule "bundle/vim-gitgutter"]
+	path = bundle/vim-gitgutter
+	url = git://github.com/airblade/vim-gitgutter.git
