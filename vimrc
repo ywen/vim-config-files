@@ -195,6 +195,9 @@ set wildmode=list:longest,list:full
 " Mappings
 " run one rspec example or describe block based on cursor position
 " map <D-r> <ESC>:w<CR>:RunSpec<CR>
+let g:rspec_runner = "os_x_iterm"
+let g:rspec_command = "Dispatch bundle exec rspec {spec}"
+map <Leader>t :call RunCurrentSpecFile()<CR>
 map <C-b> <ESC>:BufOnly<cr>
 function! RailsScriptSearch(args)
   let l:savegrepprg = &grepprg  
