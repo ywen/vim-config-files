@@ -34,7 +34,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-noremap <leader>a :Ack
 "silly attempt to convert class name to underscore
 nnoremap <leader>u :s/\(\u\)/_\L\1<cr>
 set clipboard=unnamed
@@ -191,13 +190,18 @@ let g:snippetsEmu_key = "<S-Tab>"
 set complete=.,w,b,u,t
 set completeopt=longest,menu
 set wildmode=list:longest,list:full
-
 " Mappings
 " run one rspec example or describe block based on cursor position
 " map <D-r> <ESC>:w<CR>:RunSpec<CR>
-let g:rspec_runner = "os_x_iterm"
+let g:rspec_runner = "os_x_iterm2"
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
-map <Leader>t :call RunCurrentSpecFile()<CR>
+" map <Leader>t :call RunCurrentSpecFile()<CR>
+" map <Leader>s :call RunNearestSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
+map <Leader>t :w<CR>:RunTest<CR>
+map <Leader>s :w<CR>:RunTestLine<CR>
+map <Leader>l :w<CR>:RunTestAgain<CR>
+
 map <C-b> <ESC>:BufOnly<cr>
 function! RailsScriptSearch(args)
   let l:savegrepprg = &grepprg  
@@ -251,7 +255,6 @@ noremap <leader>rc :Rcontroller
 noremap <leader>rv :Rview 
 noremap <leader>rs :Rspec 
 noremap <leader>rl :Rlib 
-noremap t :A<CR>
 
 "buffers
 noremap <leader>bd :bd<CR>
@@ -261,6 +264,7 @@ let g:ConqueTerm_TERM = 'xterm'
 "mouse support in terminal
 set mouse=a
 set mousehide
+set noswapfile
 
 "gist
 let g:gist_clip_command = 'pbcopy'
@@ -313,12 +317,12 @@ let g:rails_projections = {
 	      \   ],
 	      \   "keywords": "policies"
         \ },
-	      \ "app/classes/representers/*.rb": {
-	      \   "command": "representers",
+	      \ "app/parts/*.rb": {
+	      \   "command": "parts",
 	      \   "test": [
-	      \     "spec/classes/representers/%s_spec.rb"
+	      \     "spec/parts/%s_spec.rb"
 	      \   ],
-	      \   "keywords": "representers"
+	      \   "keywords": "parts"
         \ },
 	      \ "app/classes/presenters/*.rb": {
 	      \   "command": "presenters",
@@ -391,3 +395,21 @@ endfunction
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
 nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RENAME CURRENT FILE (thanks Gary Bernhardt)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <Leader>r :call RenameFile()<cr>
+hi! DiffAdd      guibg=#003300
+hi! DiffChange   guibg=#003300
+hi! DiffDelete   guifg=#330000 guibg=#330000
+hi! DiffText     guibg=#990000    

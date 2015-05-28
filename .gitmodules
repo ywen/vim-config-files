@@ -100,3 +100,6 @@
 [submodule "bundle/vim-rspec"]
 	path = bundle/vim-rspec/
 	url = git@github.com:thoughtbot/vim-rspec.git
+[submodule "bundle/test_server"]
+	path = bundle/test_server
+	url = git@github.com:camelpunch/test_server.git
