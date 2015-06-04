@@ -1,7 +1,50 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
-execute pathogen#infect()
 set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'dkprice/vim-easygrep'
+Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'camelpunch/test_server'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'timcharper/textile.vim'
+Plugin 'tpope/vim-haml'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'rking/ag.vim'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'tpope/vim-abolish'
+Plugin 'pangloss/vim-javascript'
+Plugin 'Raimondi/delimitMate'
+Plugin 'mxw/vim-jsx'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-endwise'
+Plugin 'bling/vim-bufferline'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'ervandew/supertab'
+Plugin 'schickling/vim-bufonly'
+Plugin 'tpope/vim-surround'
+Plugin 'othree/html5.vim'
+Plugin 'tpope/vim-bundler'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-dispatch'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'garbas/vim-snipmate'
+Plugin 'jpo/vim-railscasts-theme'
+Plugin 'tpope/vim-rake'
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'queyenth/oxeded.vim'
+Plugin 'file://~/.vim/bundle/IndexedSearch/plugin'
+Plugin 'file://~/.vim/bundle/vimlatex'
+Plugin 'tmhedberg/matchit'
+call vundle#end()
 set t_Co=256
 " autosave buffers
 set autowriteall
@@ -170,7 +213,7 @@ if executable("ack")
 endif
 
 " Color scheme
-colorscheme railscasts
+colorscheme oxeded
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A
 
