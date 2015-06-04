@@ -37,10 +37,10 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-dispatch'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
-Plugin 'jpo/vim-railscasts-theme'
 Plugin 'tpope/vim-rake'
 Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'queyenth/oxeded.vim'
+Plugin 'atelierbram/vim-colors_atelier-schemes'
+Plugin 'jedverity/feral-vim'
 Plugin 'file://~/.vim/bundle/IndexedSearch/plugin'
 Plugin 'file://~/.vim/bundle/vimlatex'
 Plugin 'tmhedberg/matchit'
@@ -213,7 +213,7 @@ if executable("ack")
 endif
 
 " Color scheme
-colorscheme oxeded
+colorscheme feral
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A
 
