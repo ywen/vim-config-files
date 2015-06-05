@@ -39,8 +39,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
 Plugin 'tpope/vim-rake'
 Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'atelierbram/vim-colors_atelier-schemes'
-Plugin 'jedverity/feral-vim'
+Plugin 'file://~/.vim/bundle/vim-railscast'
 Plugin 'file://~/.vim/bundle/IndexedSearch/plugin'
 Plugin 'file://~/.vim/bundle/vimlatex'
 Plugin 'tmhedberg/matchit'
@@ -86,6 +85,7 @@ nnoremap ; :
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
+colorscheme railscasts
 "Git commands
 noremap gs :Gstatus<CR>
 noremap ggc :Gcommit<CR>
@@ -213,7 +213,6 @@ if executable("ack")
 endif
 
 " Color scheme
-colorscheme feral
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A
 
