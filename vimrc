@@ -39,10 +39,10 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
 Plugin 'tpope/vim-rake'
 Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'lervag/vimtex'
+Plugin 'tmhedberg/matchit'
 Plugin 'file://~/.vim/bundle/vim-railscast'
 Plugin 'file://~/.vim/bundle/IndexedSearch/plugin'
-Plugin 'file://~/.vim/bundle/vimlatex'
-Plugin 'tmhedberg/matchit'
 call vundle#end()
 set t_Co=256
 " autosave buffers
