@@ -42,6 +42,7 @@ Plugin 'tpope/vim-rake'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'lervag/vimtex'
 Plugin 'tmhedberg/matchit'
+Plugin 'AndrewRadev/vim-eco'
 Plugin 'file://~/.vim/bundle/vim-railscast'
 Plugin 'file://~/.vim/bundle/IndexedSearch'
 call vundle#end()
@@ -238,12 +239,12 @@ set wildmode=list:longest,list:full
 " map <D-r> <ESC>:w<CR>:RunSpec<CR>
 let g:rspec_runner = "os_x_iterm2"
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
-" map <Leader>t :call RunCurrentSpecFile()<CR>
-" map <Leader>s :call RunNearestSpec()<CR>
-" map <Leader>l :call RunLastSpec()<CR>
-map <Leader>t :w<CR>:RunTest<CR>
-map <Leader>s :w<CR>:RunTestLine<CR>
-map <Leader>l :w<CR>:RunTestAgain<CR>
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>t :w<CR>:RunTest<CR>
+" map <Leader>s :w<CR>:RunTestLine<CR>
+" map <Leader>l :w<CR>:RunTestAgain<CR>
 
 map <C-b> <ESC>:BufOnly<cr>
 function! RailsScriptSearch(args)
