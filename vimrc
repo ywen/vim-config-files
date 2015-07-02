@@ -37,7 +37,8 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-dispatch'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-rake'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'lervag/vimtex'
@@ -181,7 +182,11 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " Maps autocomplete to tab
 " imap <Tab> <C-N>
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "ywen.snippets"]
 
+let g:UltiSnipsExpandTrigger="<S-Tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " Duplicate a selection
 " Visual mode: D
 vmap D y'>p
@@ -225,9 +230,6 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " Numbers
 set number
 set numberwidth=5
-
-" Snippets are activated by Shift+Tab
-let g:snippetsEmu_key = "<S-Tab>"
 
 " Tab completion options
 " (only complete to the longest unambiguous match, and show a menu)
