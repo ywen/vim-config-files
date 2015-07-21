@@ -37,13 +37,13 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-dispatch'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-rake'
+Plugin 'ywen/snipmate.vim'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'lervag/vimtex'
 Plugin 'tmhedberg/matchit'
 Plugin 'AndrewRadev/vim-eco'
+Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'file://~/.vim/bundle/vim-railscast'
 Plugin 'file://~/.vim/bundle/IndexedSearch'
 call vundle#end()
@@ -180,13 +180,15 @@ map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " Command mode: Ctrl+P
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
+let g:livepreview_previewer = 'open -a Skim'
+
 " Maps autocomplete to tab
 " imap <Tab> <C-N>
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "ywen.snippets"]
-
-let g:UltiSnipsExpandTrigger="<S-Tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsSnippetDirectories=["UltiSnips", "ywen.snippets"]
+"
+" let g:UltiSnipsExpandTrigger="<S-Tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " Duplicate a selection
 " Visual mode: D
 vmap D y'>p
