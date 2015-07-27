@@ -43,6 +43,7 @@ Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'lervag/vimtex'
 Plugin 'tmhedberg/matchit'
 Plugin 'AndrewRadev/vim-eco'
+Plugin 'mbbill/undotree'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'file://~/.vim/bundle/vim-railscast'
 Plugin 'file://~/.vim/bundle/IndexedSearch'
@@ -344,48 +345,16 @@ nmap sj :SplitjoinSplit<cr>
 nmap sk :SplitjoinJoin<cr>
 
 let g:rails_projections = {
-	      \ "app/classes/services/*.rb": {
-	      \   "service": "services",
+	      \ "features/*.feature": {
+	      \   "command": "features",
+	      \   "keywords": "features",
 	      \   "test": [
-	      \     "spec/classes/services/%s_spec.rb"
+	      \     "features/steps/{}.rb",
 	      \   ],
-	      \   "keywords": "services"
         \ },
-	      \ "app/classes/forms/*.rb": {
-	      \   "command": "forms",
-	      \   "test": [
-	      \     "spec/classes/forms/%s_spec.rb"
-	      \   ],
-	      \   "keywords": "forms"
-        \ },
-	      \ "app/classes/policies/*.rb": {
-	      \   "command": "policies",
-	      \   "test": [
-	      \     "spec/classes/policies/%s_spec.rb"
-	      \   ],
-	      \   "keywords": "policies"
-        \ },
-	      \ "app/parts/*.rb": {
-	      \   "command": "parts",
-	      \   "test": [
-	      \     "spec/parts/%s_spec.rb"
-	      \   ],
-	      \   "keywords": "parts"
-        \ },
-	      \ "app/classes/presenters/*.rb": {
-	      \   "command": "presenters",
-	      \   "test": [
-	      \     "spec/classes/presenters/%s_spec.rb"
-	      \   ],
-	      \   "keywords": "presenters"
-        \ },
-	      \ "vendor/gems/bidtron-auction-ui/src/*.jsx": {
-	      \   "command": "jsxui",
-	      \   "keywords": "jsxui"
-        \ },
-	      \ "vendor/gems/bidtron-auction-ui/src//*.js": {
-	      \   "command": "uijs",
-	      \   "keywords": "uijs"
+	      \ "features/steps/*.rb": {
+	      \   "command": "steps",
+	      \   "keywords": "steps"
         \ },
 	      \ "app/classes/decorators/*.rb": {
 	      \   "command": "decorator",
