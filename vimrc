@@ -11,7 +11,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'camelpunch/test_server'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'thoughtbot/vim-rspec'
 Plugin 'timcharper/textile.vim'
 Plugin 'tpope/vim-haml'
 Plugin 'vim-ruby/vim-ruby'
@@ -44,6 +43,7 @@ Plugin 'lervag/vimtex'
 Plugin 'tmhedberg/matchit'
 Plugin 'AndrewRadev/vim-eco'
 Plugin 'mbbill/undotree'
+Plugin 'skalnik/vim-vroom'
 Plugin 'szw/vim-maximizer'
 Plugin 'scrooloose/syntastic'
 Plugin 'xuhdev/vim-latex-live-preview'
@@ -246,9 +246,12 @@ set wildmode=list:longest,list:full
 " map <D-r> <ESC>:w<CR>:RunSpec<CR>
 let g:rspec_runner = "os_x_iterm2"
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
+let g:vroom_cucumber_path = "spinach"
+let g:vroom_use_dispatch = 1
+let g:vroom_ignore_color_flag = 1
+map <Leader>t :VroomRunTestFile<CR>
+map <Leader>s :VroomRunNearestTest<CR>
+map <Leader>l :VroomRunLastTest<CR>
 " map <Leader>t :w<CR>:RunTest<CR>
 " map <Leader>s :w<CR>:RunTestLine<CR>
 " map <Leader>l :w<CR>:RunTestAgain<CR>
