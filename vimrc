@@ -43,12 +43,14 @@ Plugin 'lervag/vimtex'
 Plugin 'tmhedberg/matchit'
 Plugin 'AndrewRadev/vim-eco'
 Plugin 'mbbill/undotree'
-Plugin 'skalnik/vim-vroom'
+Plugin 'janko-m/vim-test'
 Plugin 'szw/vim-maximizer'
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
+Plugin 'benmills/vimux'
+Plugin 'isRuslan/vim-es6'
 Plugin 'xuhdev/vim-latex-live-preview'
-Plugin 'file://~/.vim/bundle/vim-railscast'
+Plugin 'dhruvasagar/vim-railscasts-theme'
 Plugin 'file://~/.vim/bundle/IndexedSearch'
 call vundle#end()
 set t_Co=256
@@ -246,16 +248,14 @@ set wildmode=list:longest,list:full
 " run one rspec example or describe block based on cursor position
 " map <D-r> <ESC>:w<CR>:RunSpec<CR>
 let g:rspec_runner = "os_x_iterm2"
-let g:rspec_command = "Dispatch bundle exec rspec {spec}"
-let g:vroom_cucumber_path = "spinach"
-let g:vroom_use_dispatch = 1
-let g:vroom_ignore_color_flag = 1
-map <Leader>t :VroomRunTestFile<CR>
-map <Leader>s :VroomRunNearestTest<CR>
-map <Leader>l :VroomRunLastTest<CR>
-" map <Leader>t :w<CR>:RunTest<CR>
-" map <Leader>s :w<CR>:RunTestLine<CR>
-" map <Leader>l :w<CR>:RunTestAgain<CR>
+let test#strategy = "dispatch"
+let g:rspec_command = "Dispatch zeus test {spec}"
+let test#ruby#cucumber#executable = "bundle exec spinach"
+let test#ruby#cucumber#options= '-b'
+map <Leader>t :TestFile<CR>
+map <Leader>s :TestNearest<CR>
+map <Leader>l :TestLast<CR>
+map <Leader>g :TestVisit<CR>
 
 map <C-b> <ESC>:BufOnly<cr>
 function! RailsScriptSearch(args)
