@@ -7,7 +7,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'godlygeek/tabular'
-Plugin 'janko-m/vim-test'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'airblade/vim-gitgutter'
