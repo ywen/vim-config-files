@@ -9,7 +9,6 @@ Plugin 'dkprice/vim-easygrep'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
-Plugin 'camelpunch/test_server'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'timcharper/textile.vim'
 Plugin 'tpope/vim-haml'
@@ -252,6 +251,8 @@ let test#strategy = "dispatch"
 let g:rspec_command = "Dispatch zeus test {spec}"
 let test#ruby#cucumber#executable = "bundle exec spinach"
 let test#ruby#cucumber#options= '-b'
+let test#javascript#mocha#options= '--compilers js:babel-register'
+
 map <Leader>t :TestFile<CR>
 map <Leader>s :TestNearest<CR>
 map <Leader>l :TestLast<CR>
