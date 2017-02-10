@@ -104,7 +104,7 @@ noremap gp :Git push<CR>
 "
 "file jumping
 noremap fb :b#<CR>
-
+let g:jsx_ext_required = 0
 let ruby_space_errors = 1
 set list!
 set list listchars=tab:»·,trail:·
@@ -246,12 +246,13 @@ set wildmode=list:longest,list:full
 " Mappings
 " run one rspec example or describe block based on cursor position
 " map <D-r> <ESC>:w<CR>:RunSpec<CR>
+let NODE_ENV = "test"
 let g:rspec_runner = "os_x_iterm2"
 let test#strategy = "dispatch"
 let g:rspec_command = "Dispatch zeus test {spec}"
 let test#ruby#cucumber#executable = "bundle exec spinach"
 let test#ruby#cucumber#options= '-b'
-let test#javascript#mocha#options= '--compilers js:babel-register'
+let test#javascript#mocha#executable = 'yarn test'
 
 map <Leader>t :TestFile<CR>
 map <Leader>s :TestNearest<CR>
