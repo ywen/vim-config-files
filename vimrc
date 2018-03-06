@@ -79,6 +79,7 @@ nnoremap <leader><space> :noh<cr>
 inoremap jj <ESC>
 "split window
 nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader>v <C-w>s<C-w>l
 "move between windows
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -224,6 +225,8 @@ nmap <F1> <Esc>
 " Press ^F from insert mode to insert the current file name
 imap <C-F> <C-R>=expand("%")<CR>
 
+nmap <C-C> <Plug>Kwbd
+
 " Display extra whitespace
 " set list listchars=tab:»·,trail:·
 let g:Conque_TERM = "xterm"
@@ -266,7 +269,7 @@ set wildmode=list:longest,list:full
 let NODE_ENV = "test"
 let g:rspec_runner = "os_x_iterm2"
 let test#strategy = "dispatch"
-let g:rspec_command = "Dispatch zeus test {spec}"
+let g:rspec_command = "Dispatch bundle exec rspec"
 let test#ruby#cucumber#executable = "bundle exec spinach"
 let test#ruby#cucumber#options= '-b'
 let test#javascript#mocha#executable = 'yarn test'
@@ -329,7 +332,7 @@ noremap <leader>rc :Rcontroller
 noremap <leader>rv :Rview 
 noremap <leader>rs :Rspec 
 noremap <leader>rl :Rlib 
-
+noremap <Leader>ot :vsplit<ENTER><C-w>l:A<ENTER>
 "buffers
 noremap <leader>bd :bd<CR>
 let g:SimpleJsIndenter_BriefMode = 1
@@ -379,14 +382,17 @@ let g:rails_projections = {
         \ },
 	      \ "features/steps/*.rb": {
 	      \   "command": "steps",
-	      \   "keywords": "steps"
-        \ },
-	      \ "app/classes/decorators/*.rb": {
-	      \   "command": "decorator",
+	      \   "keywords": "steps",
 	      \   "test": [
-	      \     "spec/classes/decorators/%s_spec.rb"
+	      \     "features/{}.feature",
 	      \   ],
-	      \   "keywords": "decorator"
+        \ },
+	      \ "app/controllers/api/v1/*_controller.rb": {
+	      \   "command": "vapi",
+	      \   "keywords": "vapi",
+	      \   "test": [
+	      \     "spec/controllers/api/v1/%s_spec.rb",
+	      \   ],
         \ }
         \}
 function! BufSel(pattern)
