@@ -8,6 +8,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb'
 Plugin 'tpope/vim-repeat'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'timcharper/textile.vim'
@@ -43,14 +44,16 @@ Plugin 'AndrewRadev/vim-eco'
 Plugin 'mbbill/undotree'
 Plugin 'janko-m/vim-test'
 Plugin 'szw/vim-maximizer'
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'benmills/vimux'
 Plugin 'isRuslan/vim-es6'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'dhruvasagar/vim-railscasts-theme'
+Plugin 'slim-template/vim-slim'
 Plugin 'file://~/.vim/bundle/IndexedSearch'
 call vundle#end()
+syntax enable
 set t_Co=256
 " autosave buffers
 set autowriteall
@@ -271,7 +274,7 @@ let test#strategy = "dispatch"
 let g:rspec_command = "Dispatch bundle exec rspec"
 let test#ruby#cucumber#executable = "bundle exec spinach"
 let test#ruby#cucumber#options= '-b'
-let test#javascript#mocha#executable = 'yarn test'
+let test#javascript#mocha#executable = 'yarn test --reporter dot'
 
 map <Leader>t :TestFile<CR>
 map <Leader>s :TestNearest<CR>
