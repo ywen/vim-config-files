@@ -4,7 +4,7 @@
 My vim config files
 
 The config files use pathogen.vim managing the plugins. Each plugins, if it is a git repo, is a git submodule
- 
+
 ## INSTALL
 
 ```bash
@@ -16,3 +16,5 @@ $ ln -s vim-config-files/vimrc .vimrc
 $ ln -s vim-config-files/gvimrc .gvimrc
 ```
 
+
+[Run Spec](https://github.com/ywen/vim-config-files/blob/master/bin/run_rspec.rb)
