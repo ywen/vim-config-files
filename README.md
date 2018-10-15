@@ -16,5 +16,6 @@ $ ln -s vim-config-files/vimrc .vimrc
 $ ln -s vim-config-files/gvimrc .gvimrc
 ```
 
+### Table of Contents
 
 [Run Spec](https://github.com/ywen/vim-config-files/blob/master/bin/run_rspec.rb)
