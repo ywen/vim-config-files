@@ -6,6 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'dkprice/vim-easygrep'
+Plugin 'yegappan/greplace'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
@@ -137,6 +138,8 @@ highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
 
+let g:ctrlp_max_files=0
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|build\|public'
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
@@ -170,18 +173,18 @@ set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
 set directory=~/.vim/swp
-" if has("folding")
-"   set foldenable
-"   set foldmethod=syntax
-"   set foldlevel=1
-"   set foldnestmax=2
-"   set foldtext=strpart(getline(v:foldstart),0,50).'\\ ...\\ '.substitute(getline(v:foldend),'^[\\ #]*','','g').'\\ '
-"   highlight Folded guibg=grey guifg=blue
-"   highlight FoldColumn guibg=darkgrey guifg=white
-"   " automatically open folds at the starting cursor position
-"   " autocmd BufReadPost .foldo!
-" endif
-" 
+if has("folding")
+  set foldenable
+  set foldmethod=syntax
+  set foldlevel=0
+  set foldnestmax=2
+  highlight Folded ctermbg=black ctermfg=cyan
+  highlight FoldColumn ctermbg=black ctermfg=cyan
+  " automatically open folds at the starting cursor position
+  " autocmd BufReadPost .foldo!
+  autocmd FileType gitcommit setlocal nofoldenable
+endif
+"
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
@@ -227,7 +230,7 @@ nmap <F1> <Esc>
 " Press ^F from insert mode to insert the current file name
 imap <C-F> <C-R>=expand("%")<CR>
 
-nmap <C-C> <Plug>Kwbd
+nmap <C-C> :b#<bar>bd#<CR>
 
 " Display extra whitespace
 " set list listchars=tab:»·,trail:·
