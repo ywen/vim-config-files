@@ -16,12 +16,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'timcharper/textile.vim'
 Plug 'tpope/vim-haml'
 Plug 'vim-ruby/vim-ruby'
-Plug 'rking/ag.vim'
 Plug 'suan/vim-instant-markdown'
 Plug 'tpope/vim-abolish'
 Plug 'pangloss/vim-javascript'
 Plug 'Raimondi/delimitMate'
-Plug 'mxw/vim-jsx'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-endwise'
 Plug 'bling/vim-bufferline'
@@ -47,19 +46,21 @@ Plug 'mbbill/undotree'
 Plug 'janko-m/vim-test'
 Plug 'szw/vim-maximizer'
 Plug 'vim-syntastic/syntastic'
-Plug 'kien/ctrlp.vim'
 Plug 'benmills/vimux'
 Plug 'isRuslan/vim-es6'
 Plug 'xuhdev/vim-latex-live-preview'
 Plug 'dhruvasagar/vim-railscasts-theme'
 Plug 'slim-template/vim-slim'
 Plug 'LnL7/vim-nix'
-Plug 'voldikss/vim-floaterm'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'file://~/.vim/bundle/IndexedSearch'
+Plug '/usr/local/opt/fzf'
+Plug 'liuchengxu/vim-clap'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug '~/.vim/bundle/IndexedSearch'
 " call vundle#end()
 call plug#end()
 syntax enable
+set shell=/bin/zsh
 set t_Co=256
 " autosave buffers
 set autowriteall
@@ -68,7 +69,6 @@ set ignorecase
 set smartcase
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-set shell=/bin/bash
 set nobackup
 set nowritebackup
 set history=50		" keep 50 lines of command line history
@@ -101,6 +101,7 @@ nnoremap k gk
 nnoremap ; :
 " Don't use Ex mode, use Q for formatting
 map Q gq
+tnoremap <Esc> <C-\><C-n>:q!<CR>
 
 colorscheme railscasts
 "Git commands
@@ -211,7 +212,8 @@ map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Inserts the path of the currently edited file into a command
 " Command mode: Ctrl+P
-cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+map <C-P> :Clap files<CR>
+map <C-F> :Clap grep<CR>
 
 let g:livepreview_previewer = 'open -a Skim'
 
@@ -278,8 +280,27 @@ set wildmode=list:longest,list:full
 " map <D-r> <ESC>:w<CR>:RunSpec<CR>
 let NODE_ENV = "test"
 let g:rspec_runner = "os_x_iterm2"
-let test#strategy = "dispatch"
-let g:rspec_command = "Dispatch bundle exec rspec"
+function! FloatingStrategy(cmd)
+  " Terminal Window
+  let width = float2nr(&columns - (&columns * 2 / 6))
+  let height = float2nr(&lines / 1.4)
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': 2,
+        \ 'col': 4,
+        \ 'width': width,
+        \ 'height': height,
+        \ }
+  let buf = nvim_create_buf(v:false, v:true)
+  let s:float_term_win = nvim_open_win(buf, v:true, opts)
+  call termopen(a:cmd)
+  startinsert
+endfunction
+
+let g:test#preserve_screen = 0
+let g:test#custom_strategies = {'floating': function('FloatingStrategy')}
+let g:test#strategy = 'vimux'
+let g:rspec_command = "bundle exec rspec"
 let test#ruby#cucumber#executable = "bundle exec spinach"
 let test#ruby#cucumber#options= '-b'
 let test#javascript#mocha#executable = 'yarn test --reporter dot'
@@ -435,30 +456,39 @@ endfunction
 
 "Bind the BufSel() function to a user-command
 command! -nargs=1 Bs :call BufSel("<args>")
-" Run a given vim command on the results of fuzzy selecting from a given shell
-" command. See usage below.
-function! SelectaCommand(choice_command, selecta_args, vim_command)
-  try
-    silent let selection = system(a:choice_command . " | selecta " . a:selecta_args)
-  catch /Vim:Interrupt/
-    " Swallow the ^C so that the redraw below happens; otherwise there will be
-    " leftovers from selecta on the screen
-    redraw!
-    return
-  endtry
-  redraw!
-  exec a:vim_command . " " . selection
-endfunction
 
-" Find all files in all non-dot directories starting in the working directory.
-" Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
+" FZF Floating Window {{{1
+
+if exists('*nvim_create_buf')
+  let $FZF_DEFAULT_OPTS='--layout=reverse'
+  let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+  function! FloatingFZF()
+    let buf = nvim_create_buf(v:false, v:true)
+    call setbufvar(buf, '&signcolumn', 'no')
+
+    let height = &lines / 2
+    let width = float2nr(&columns - (&columns * 2 / 4))
+    let col = float2nr((&columns - width) / 2)
+
+    let opts = {
+          \ 'relative': 'editor',
+          \ 'row': &lines / 5,
+          \ 'col': col,
+          \ 'width': width,
+          \ 'height': height
+          \ }
+
+    call nvim_open_win(buf, v:true, opts)
+  endfunction
+endif
+command! -nargs=+ -complete=file Rag call fzf#vim#ag_raw(<q-args>)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE (thanks Gary Bernhardt)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! RenameFile()
-    let old_name = expand('%')
+  let old_name = expand('%')
     let new_name = input('New file name: ', expand('%'), 'file')
     if new_name != '' && new_name != old_name
         exec ':saveas ' . new_name
@@ -471,3 +501,22 @@ hi! DiffAdd      guibg=#003300
 hi! DiffChange   guibg=#003300
 hi! DiffDelete   guifg=#330000 guibg=#330000
 hi! DiffText     guibg=#990000    
+
+function! FloatingTerm()
+  " Terminal Window
+  let width = float2nr(&columns - (&columns * 2 / 6))
+  let col = float2nr(&columns * 0.2)
+  let height = float2nr(&lines / 1.4)
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': 2,
+        \ 'col': col,
+        \ 'width': width,
+        \ 'height': height,
+        \ }
+  let buf = nvim_create_buf(v:false, v:true)
+  let s:float_term_win = nvim_open_win(buf, v:true, opts)
+  terminal
+  startinsert
+endfunction
+map <Leader>at :call FloatingTerm()<cr>
