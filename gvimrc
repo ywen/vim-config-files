@@ -6,7 +6,7 @@ set lines=40
 let &columns = g:halfsize
 
 " Font
-set guifont=Menlo:h22.00
+set guifont=Menlo:h28.00
 
 set fuoptions=maxhorz,maxvert,background:Normal
 

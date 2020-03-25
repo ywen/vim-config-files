@@ -18,6 +18,8 @@ Plug 'tpope/vim-haml'
 Plug 'vim-ruby/vim-ruby'
 Plug 'suan/vim-instant-markdown'
 Plug 'tpope/vim-abolish'
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'pangloss/vim-javascript'
 Plug 'Raimondi/delimitMate'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -103,11 +105,16 @@ nnoremap ; :
 map Q gq
 tnoremap <Esc> <C-\><C-n>:q!<CR>
 
+let g:bufferline_echo = 0
+" set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M\")}\ %l,%c%V\ %P%{fugitive#statusline()}
+autocmd VimEnter *
+      \ let &statusline='%<%{strftime("%l:%M")} %l,%c%V %P%{bufferline#refresh_status()}'
+      \ .bufferline#get_status_string()
 colorscheme railscasts
 "Git commands
 noremap gs :Gstatus<CR>
 noremap ggc :Gcommit<CR>
-noremap gp :Git push<CR>
+noremap gap :Git add -p<CR>
 " This is an alternative that also works in block mode, but the deleted
 " text is lost and it only works for putting the current register.
 "vnoremap p "_dp
@@ -257,6 +264,8 @@ set grepprg=grep\ -nH\ $*
 if executable("ack")
   set grepprg=ack\ -H\ --nogroup\ --nocolor
 endif
+map <Leader>vra :vertical resize +5<CR>
+map <Leader>vrs :vertical resize -5<CR>
 
 " Color scheme
 highlight NonText guibg=#060606
@@ -349,13 +358,11 @@ augroup mkd
 
 augroup END
 
-set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M\")}\ %l,%c%V\ %P%{fugitive#statusline()}
+" set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M\")}\ %l,%c%V\ %P%{fugitive#statusline()}
 let g:ConqueTerm_Color = 1
 let g:ConqueTerm_TERM = 'vt100'
 let g:ConqueTerm_ReadUnfocused = 0
 let g:ConqueTerm_CWInsert = 0
-
-let g:bufferline_rotate = 2
 
 "rails.vim specific shortcut
 noremap <leader>rm :Rmodel 
@@ -379,7 +386,7 @@ let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>
 
 function! NumberToggle()
   if(&relativenumber == 1)
@@ -520,3 +527,4 @@ function! FloatingTerm()
   startinsert
 endfunction
 map <Leader>at :call FloatingTerm()<cr>
+nmap <Leader>n :NERDTreeFind<CR>
