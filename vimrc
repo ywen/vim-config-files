@@ -40,6 +40,8 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-rake'
 Plug 'ywen/snipmate.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'lervag/vimtex'
 Plug 'tmhedberg/matchit'
@@ -106,15 +108,14 @@ map Q gq
 tnoremap <Esc> <C-\><C-n>:q!<CR>
 
 let g:bufferline_echo = 0
+let g:airline#extensions#tabline#enabled = 0
 " set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M\")}\ %l,%c%V\ %P%{fugitive#statusline()}
-autocmd VimEnter *
-      \ let &statusline='%<%{strftime("%l:%M")} %l,%c%V %P%{bufferline#refresh_status()}'
-      \ .bufferline#get_status_string()
 colorscheme railscasts
 "Git commands
 noremap gs :Gstatus<CR>
 noremap ggc :Gcommit<CR>
 noremap gap :Git add -p<CR>
+noremap gp :Git push<CR>
 " This is an alternative that also works in block mode, but the deleted
 " text is lost and it only works for putting the current register.
 "vnoremap p "_dp
@@ -132,9 +133,10 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   set hlsearch
 endif
 let g:Tex_DefaultTargetFormat= "pdf"
-let g:Tex_ViewRule_pdf = 'Skim.app'
+let g:Tex_ViewRule_pdf = 'Preview.app'
 
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_html_tidy_ignore_errors = [ 'trimming empty' ]
 let g:syntastic_loc_list_height = 5
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
