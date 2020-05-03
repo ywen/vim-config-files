@@ -25,7 +25,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-endwise'
-Plug 'bling/vim-bufferline'
+Plug 'ywen/vim-bufferline'
 Plug 'plasticboy/vim-markdown'
 Plug 'ervandew/supertab'
 Plug 'schickling/vim-bufonly'
@@ -108,6 +108,7 @@ map Q gq
 tnoremap <Esc> <C-\><C-n>:q!<CR>
 
 let g:bufferline_echo = 0
+let g:bufferline_fname_mod = ":."
 let g:airline#extensions#tabline#enabled = 0
 " set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M\")}\ %l,%c%V\ %P%{fugitive#statusline()}
 colorscheme railscasts
@@ -323,7 +324,7 @@ map <Leader>g :TestVisit<CR>
 
 map <C-b> <ESC>:BufOnly<cr>
 function! RailsScriptSearch(args)
-  let l:savegrepprg = &grepprg  
+  let l:savegrepprg = &grepprg
   let l:savegrepformat = &grepformat
 
   try
@@ -367,11 +368,11 @@ let g:ConqueTerm_ReadUnfocused = 0
 let g:ConqueTerm_CWInsert = 0
 
 "rails.vim specific shortcut
-noremap <leader>rm :Rmodel 
-noremap <leader>rc :Rcontroller 
-noremap <leader>rv :Rview 
-noremap <leader>rs :Rspec 
-noremap <leader>rl :Rlib 
+noremap <leader>rm :Rmodel
+noremap <leader>rc :Rcontroller
+noremap <leader>rv :Rview
+noremap <leader>rs :Rspec
+noremap <leader>rl :Rlib
 noremap <Leader>ot :vsplit<ENTER><C-w>l:A<ENTER>
 "buffers
 noremap <leader>bd :bd<CR>
@@ -413,28 +414,28 @@ nmap sj :SplitjoinSplit<cr>
 nmap sk :SplitjoinJoin<cr>
 
 let g:rails_projections = {
-	      \ "features/*.feature": {
-	      \   "command": "features",
-	      \   "keywords": "features",
-	      \   "test": [
-	      \     "features/steps/{}.rb",
-	      \   ],
-        \ },
-	      \ "features/steps/*.rb": {
-	      \   "command": "steps",
-	      \   "keywords": "steps",
-	      \   "test": [
-	      \     "features/{}.feature",
-	      \   ],
-        \ },
-	      \ "app/controllers/api/v1/*_controller.rb": {
-	      \   "command": "vapi",
-	      \   "keywords": "vapi",
-	      \   "test": [
-	      \     "spec/controllers/api/v1/%s_spec.rb",
-	      \   ],
-        \ }
-        \}
+      \ "features/*.feature": {
+      \   "command": "features",
+      \   "keywords": "features",
+      \   "test": [
+      \     "features/steps/{}.rb",
+      \   ],
+      \ },
+      \ "features/steps/*.rb": {
+      \   "command": "steps",
+      \   "keywords": "steps",
+      \   "test": [
+      \     "features/{}.feature",
+      \   ],
+      \ },
+      \ "app/controllers/api/v1/*_controller.rb": {
+      \   "command": "vapi",
+      \   "keywords": "vapi",
+      \   "test": [
+      \     "spec/controllers/api/v1/%s_spec.rb",
+      \   ],
+      \ }
+      \}
 function! BufSel(pattern)
   let bufcount = bufnr("$")
   let currbufnr = 1
@@ -498,18 +499,18 @@ command! -nargs=+ -complete=file Rag call fzf#vim#ag_raw(<q-args>)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! RenameFile()
   let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'), 'file')
-    if new_name != '' && new_name != old_name
-        exec ':saveas ' . new_name
-        exec ':silent !rm ' . old_name
-        redraw!
-    endif
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
 endfunction
 map <Leader>r :call RenameFile()<cr>
 hi! DiffAdd      guibg=#003300
 hi! DiffChange   guibg=#003300
 hi! DiffDelete   guifg=#330000 guibg=#330000
-hi! DiffText     guibg=#990000    
+hi! DiffText     guibg=#990000
 
 function! FloatingTerm()
   " Terminal Window
@@ -529,4 +530,28 @@ function! FloatingTerm()
   startinsert
 endfunction
 map <Leader>at :call FloatingTerm()<cr>
-nmap <Leader>n :NERDTreeFind<CR>
+nmap <Leader>nf :NERDTreeFind<CR>
+" autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
+" autocmd VimEnter * wincmd p
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"let g:airline_section_a = airline#section#create(['mode', 'iminsert'])
+let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'keymap', 'capslock', 'xkblayout', 'iminsert'])
+let g:airline_section_x = airline#section#create([])
+let g:airline_section_y = airline#section#create([])
+let g:airline_section_z = airline#section#create(['%3p%%', 'linenr',  ':%3v'])
+
+let g:airline_mode_map = {
+      \ '__' : '--',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V-L',
+      \ '' : 'V-B',
+      \ 's'  : 'S',
+      \ 'S'  : 'S-L',
+      \ '' : 'S-B',
+      \ 't'  : 'T',
+      \ }
