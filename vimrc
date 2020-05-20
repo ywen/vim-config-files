@@ -62,7 +62,6 @@ Plug 'LnL7/vim-nix'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug '/usr/local/opt/fzf'
 Plug 'liuchengxu/vim-clap'
-Plug 'AndrewRadev/splitjoin.vim'
 Plug '~/.vim/bundle/IndexedSearch'
 " call vundle#end()
 call plug#end()
