@@ -5,6 +5,7 @@ filetype off
 " set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin()
 " call vundle#begin()
+Plug 'dstein64/vim-startuptime'
 Plug 'gmarik/Vundle.vim'
 Plug 'dkprice/vim-easygrep'
 Plug 'yegappan/greplace'
@@ -24,9 +25,12 @@ Plug 'pangloss/vim-javascript'
 Plug 'Raimondi/delimitMate'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'tpope/vim-speeddating'
+Plug 'Quramy/tsuquyomi'
+Plug 'leafgarland/typescript-vim'
 Plug 'tpope/vim-endwise'
-Plug 'ywen/vim-bufferline'
+Plug 'bling/vim-bufferline'
 Plug 'plasticboy/vim-markdown'
+Plug 'Konfekt/FastFold'
 Plug 'ervandew/supertab'
 Plug 'schickling/vim-bufonly'
 Plug 'tpope/vim-surround'
@@ -52,7 +56,6 @@ Plug 'szw/vim-maximizer'
 Plug 'vim-syntastic/syntastic'
 Plug 'benmills/vimux'
 Plug 'isRuslan/vim-es6'
-Plug 'xuhdev/vim-latex-live-preview'
 Plug 'dhruvasagar/vim-railscasts-theme'
 Plug 'slim-template/vim-slim'
 Plug 'LnL7/vim-nix'
@@ -108,7 +111,7 @@ map Q gq
 tnoremap <Esc> <C-\><C-n>:q!<CR>
 
 let g:bufferline_echo = 0
-let g:bufferline_fname_mod = ":."
+let g:bufferline_fname_mod = ':gs?.*\/\ze.*\/??'
 let g:airline#extensions#tabline#enabled = 0
 " set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M\")}\ %l,%c%V\ %P%{fugitive#statusline()}
 colorscheme railscasts
@@ -190,6 +193,22 @@ set autoindent		" always set autoindenting on
 endif " has("autocmd")
 set directory=~/.vim/swp
 if has("folding")
+  nmap zuz <Plug>(FastFoldUpdate)
+  let g:fastfold_savehook = 1
+  let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+  let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
+  let g:markdown_folding = 1
+  let g:tex_fold_enabled = 1
+  let g:vimsyn_folding = 'af'
+  let g:xml_syntax_folding = 1
+  let g:javaScript_fold = 1
+  let g:sh_fold_enabled= 7
+  let g:ruby_fold = 1
+  let g:perl_fold = 1
+  let g:perl_fold_blocks = 1
+  let g:r_syntax_folding = 1
+  let g:rust_fold = 1
+  let g:php_folding = 1
   set foldenable
   set foldmethod=syntax
   set foldlevel=0
@@ -240,6 +259,7 @@ vmap D y'>p
 
 " For Haml
 au! BufRead,BufNewFile *.haml         setfiletype haml
+au! BufRead,BufNewFile *.tsx   setfiletype typescript
 
 " No Help, please
 nmap <F1> <Esc>
@@ -389,8 +409,6 @@ let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>
-
 function! NumberToggle()
   if(&relativenumber == 1)
     set norelativenumber
@@ -539,7 +557,7 @@ nmap <Leader>nf :NERDTreeFind<CR>
 let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'keymap', 'capslock', 'xkblayout', 'iminsert'])
 let g:airline_section_x = airline#section#create([])
 let g:airline_section_y = airline#section#create([])
-let g:airline_section_z = airline#section#create(['%3p%%', 'linenr',  ':%3v'])
+let g:airline_section_z = airline#section#create(['%p%%', 'linenr',  ':%v'])
 
 let g:airline_mode_map = {
       \ '__' : '--',
