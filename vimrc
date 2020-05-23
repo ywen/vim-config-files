@@ -6,8 +6,6 @@ filetype off
 call plug#begin()
 " call vundle#begin()
 Plug 'dstein64/vim-startuptime'
-Plug 'gmarik/Vundle.vim'
-Plug 'dkprice/vim-easygrep'
 Plug 'yegappan/greplace'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-fugitive'
