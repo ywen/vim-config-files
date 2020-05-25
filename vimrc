@@ -6,7 +6,6 @@ filetype off
 call plug#begin()
 " call vundle#begin()
 Plug 'dstein64/vim-startuptime'
-Plug 'yegappan/greplace'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -17,8 +16,6 @@ Plug 'tpope/vim-haml'
 Plug 'vim-ruby/vim-ruby'
 Plug 'suan/vim-instant-markdown'
 Plug 'tpope/vim-abolish'
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'pangloss/vim-javascript'
 Plug 'Raimondi/delimitMate'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -46,18 +43,18 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'lervag/vimtex'
-Plug 'tmhedberg/matchit'
 Plug 'AndrewRadev/vim-eco'
 Plug 'mbbill/undotree'
 Plug 'janko-m/vim-test'
 Plug 'szw/vim-maximizer'
-Plug 'vim-syntastic/syntastic'
 Plug 'benmills/vimux'
+Plug 'dense-analysis/ale'
 Plug 'isRuslan/vim-es6'
 Plug 'dhruvasagar/vim-railscasts-theme'
 Plug 'slim-template/vim-slim'
 Plug 'LnL7/vim-nix'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovim/nvim-lsp'
+Plug 'haorenW1025/completion-nvim'
 Plug '/usr/local/opt/fzf'
 Plug 'liuchengxu/vim-clap'
 Plug '~/.vim/bundle/IndexedSearch'
@@ -66,6 +63,25 @@ call plug#end()
 syntax enable
 set shell=/bin/zsh
 set t_Co=256
+
+lua << EOF
+  require'nvim_lsp'.tsserver.setup{}
+EOF
+
+" haorenW1025/completion-nvim
+autocmd BufEnter * lua require'completion'.on_attach()
+let g:completion_enable_auto_popup = 0
+set completeopt=menuone,noinsert,noselect
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ completion#trigger_completion()
+
 " autosave buffers
 set autowriteall
 autocmd BufLeave,FocusLost * wall
@@ -88,7 +104,6 @@ set gdefault
 let mapleader = ","
 "remove the search highlight
 nnoremap <leader><space> :noh<cr>
-inoremap jj <ESC>
 "split window
 nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <leader>v <C-w>s<C-w>l
@@ -103,6 +118,7 @@ set clipboard=unnamed
 nnoremap j gj
 nnoremap k gk
 nnoremap ; :
+nnoremap <leader>m :MaximizerToggle!<cr>
 " Don't use Ex mode, use Q for formatting
 map Q gq
 tnoremap <Esc> <C-\><C-n>:q!<CR>
