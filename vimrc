@@ -46,7 +46,6 @@ Plug 'lervag/vimtex'
 Plug 'AndrewRadev/vim-eco'
 Plug 'mbbill/undotree'
 Plug 'janko-m/vim-test'
-Plug 'szw/vim-maximizer'
 Plug 'benmills/vimux'
 Plug 'dense-analysis/ale'
 Plug 'isRuslan/vim-es6'
@@ -118,7 +117,6 @@ set clipboard=unnamed
 nnoremap j gj
 nnoremap k gk
 nnoremap ; :
-nnoremap <leader>m :MaximizerToggle!<cr>
 " Don't use Ex mode, use Q for formatting
 map Q gq
 tnoremap <Esc> <C-\><C-n>:q!<CR>
