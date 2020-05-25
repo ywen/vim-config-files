@@ -104,8 +104,8 @@ let mapleader = ","
 "remove the search highlight
 nnoremap <leader><space> :noh<cr>
 "split window
-nnoremap <leader>w <C-w>v<C-w>l
-nnoremap <leader>v <C-w>s<C-w>l
+nnoremap <leader>v <C-w>v<C-w>l
+nnoremap <leader>w <C-w>s<C-w>l
 "move between windows
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
