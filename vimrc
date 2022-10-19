@@ -14,7 +14,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'timcharper/textile.vim'
 Plug 'tpope/vim-haml'
 Plug 'vim-ruby/vim-ruby'
-Plug 'suan/vim-instant-markdown'
+Plug 'tpope/vim-eunuch'
+Plug 'voldikss/vim-floaterm'
+Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'tpope/vim-abolish'
 Plug 'pangloss/vim-javascript'
 Plug 'Raimondi/delimitMate'
@@ -52,7 +54,7 @@ Plug 'isRuslan/vim-es6'
 Plug 'dhruvasagar/vim-railscasts-theme'
 Plug 'slim-template/vim-slim'
 Plug 'LnL7/vim-nix'
-Plug 'neovim/nvim-lsp'
+Plug 'neovim/nvim-lspconfig'
 Plug 'haorenW1025/completion-nvim'
 Plug '/usr/local/opt/fzf'
 Plug 'liuchengxu/vim-clap'
@@ -62,10 +64,6 @@ call plug#end()
 syntax enable
 set shell=/bin/zsh
 set t_Co=256
-
-lua << EOF
-  require'nvim_lsp'.tsserver.setup{}
-EOF
 
 " haorenW1025/completion-nvim
 autocmd BufEnter * lua require'completion'.on_attach()
