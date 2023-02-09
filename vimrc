@@ -15,15 +15,14 @@ Plug 'timcharper/textile.vim'
 Plug 'tpope/vim-haml'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-eunuch'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 Plug 'voldikss/vim-floaterm'
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'tpope/vim-abolish'
-Plug 'pangloss/vim-javascript'
+Plug 'sheerun/vim-polyglot'
 Plug 'Raimondi/delimitMate'
-Plug 'maxmellon/vim-jsx-pretty'
 Plug 'tpope/vim-speeddating'
-Plug 'Quramy/tsuquyomi'
-Plug 'leafgarland/typescript-vim'
 Plug 'tpope/vim-endwise'
 Plug 'bling/vim-bufferline'
 Plug 'plasticboy/vim-markdown'
@@ -166,7 +165,6 @@ highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
 
-let g:ctrlp_max_files=0
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|build\|public'
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -250,8 +248,8 @@ map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Inserts the path of the currently edited file into a command
 " Command mode: Ctrl+P
-map <C-P> :Clap files<CR>
-map <C-F> :Clap grep<CR>
+map <C-P> <cmd>Telescope find_files<cr>
+map <C-F> <cmd>Telescope live_grep<cr>
 
 let g:livepreview_previewer = 'open -a Skim'
 
@@ -268,7 +266,6 @@ vmap D y'>p
 
 " For Haml
 au! BufRead,BufNewFile *.haml         setfiletype haml
-au! BufRead,BufNewFile *.tsx   setfiletype typescript
 
 " No Help, please
 nmap <F1> <Esc>
